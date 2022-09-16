@@ -5,27 +5,38 @@ using UnityEngine.AI;
 
 public class EnemyCrawler : Enemy
 {
-    [SerializeField] private float StartWaitTime = 4f;
-    [SerializeField] private float timeToRotate = 4f;
-    [SerializeField] private float speedWalk = 6f;
-    [SerializeField] private float speedRun = 9f;
+    public float lookRadius = 10f;
+    private Transform target;
+    private NavMeshAgent navMeshAgent;
 
-    [SerializeField] private float viewRadius = 15f;
-    [SerializeField] private float viewAngle = 90f;
-
-    public NavMeshAgent navMeshAgent;
-    private void Awake()
+    private void Start()
     {
-        navMeshAgent = GetComponent<NavMeshAgent>();
-    }
-
-    public void LookingPlayer()
-    {
-        navMeshAgent.SetDestination(FirstPersonController.instance.transform.position);
+        target = FirstPersonController.instance.transform;
+        navMeshAgent = GetComponent<NavMeshAgent>(); 
     }
 
 
 
+    private void Update()
+    {
+        float distance = Vector3.Distance(transform.position, target.position);
+
+        if (distance <= lookRadius)
+        {
+            navMeshAgent.SetDestination(target.position);
+        }
+
+
+
+
+    }
+
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, lookRadius);
+    }
 
 
 
