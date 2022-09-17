@@ -7,10 +7,10 @@ public abstract class Enemy : MonoBehaviour
 {
     
 
-    public float Healt;
-    public float Damage;
-    public float Speed;
-    
+     public float Healt=100f;
+     public float Damage=10f;
+     public float WalkSpeed=5f;
+
     
 
 

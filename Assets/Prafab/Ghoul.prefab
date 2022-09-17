@@ -1195,7 +1195,7 @@ GameObject:
   - component: {fileID: 5311533778415650820}
   - component: {fileID: 5311533778415650827}
   - component: {fileID: 5311533778415650826}
-  - component: {fileID: 5311533778415650821}
+  - component: {fileID: 847213585}
   m_Layer: 0
   m_Name: Ghoul
   m_TagString: Untagged
@@ -1295,7 +1295,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &5311533778415650821
+--- !u!114 &847213585
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1307,10 +1307,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a1912f21199c8e4399e577af1b74b14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Healt: 0
-  Damage: 0
-  Speed: 0
+  Healt: 100
+  Damage: 10
+  WalkSpeed: 5
   lookRadius: 10
+  target: {fileID: 0}
+  Agent: {fileID: 5311533778415650820}
 --- !u!1 &5311541576130676996
 GameObject:
   m_ObjectHideFlags: 0
