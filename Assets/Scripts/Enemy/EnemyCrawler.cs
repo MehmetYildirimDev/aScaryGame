@@ -47,7 +47,7 @@ public class EnemyCrawler : Enemy
         Vector3 direction = (target.position - transform.position).normalized;
         //normalized: yonunu koruyo ama uzunlugu 1 kaliyo ///mesela burada yon onemli o yuzden yaptik
 
-        Quaternion LookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
+        Quaternion LookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0,direction.z));
         transform.rotation = Quaternion.Slerp(transform.rotation, LookRotation, Time.deltaTime * 5f);
 
     }
