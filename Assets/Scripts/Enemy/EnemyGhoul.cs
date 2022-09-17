@@ -10,18 +10,37 @@ public class EnemyGhoul : Enemy
     private Transform target;
     private NavMeshAgent Agent;
 
+    public bool useFootSteps = true;
+    [Header("Foot Steps Parameters")]
+    public float baseStepSpeed = 0.5f;
+    public AudioSource audioSource = default;
+    public AudioClip[] woodClips = default;
+    public AudioClip[] NormalClips = default;
+    public AudioClip[] MetalClips = default;
+    public AudioClip[] grassClips = default;
+    public float footStepTimer = 0;
+
     private void Start()
     {
         target = FirstPersonController.instance.transform;
         Agent = GetComponent<NavMeshAgent>();
+        audioSource = GetComponent<AudioSource>();
     }
 
 
 
     private void Update()
     {
-        float distance = DistanceCalculate();
+        
+        if (useFootSteps)
+            HandleFootSteps();
 
+        float distance = Vector3.Distance(transform.position, target.position);
+
+        if (distance <= lookRadius)
+        {
+            Agent.SetDestination(target.position);
+        }
 
         if (distance <= Agent.stoppingDistance)
         {
@@ -40,20 +59,46 @@ public class EnemyGhoul : Enemy
 
     }
 
-    private float DistanceCalculate()
-    {
-        float distance = Vector3.Distance(transform.position, target.position);
-
-        if (distance <= lookRadius)
-        {
-            Agent.SetDestination(target.position);
-        }
-        return distance;
-    }
 
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, lookRadius);
     }
+    public void HandleFootSteps()
+    {
+
+        if (Agent.velocity.magnitude <= 0) return;
+        //if (currentInput == Vector2.zero) return;
+
+        footStepTimer -= Time.deltaTime;
+
+        if (footStepTimer <= 0)
+        {
+            if (Physics.Raycast(transform.position, Vector3.down, out RaycastHit hit, 3f))
+            {
+                switch (hit.collider.tag)
+                {
+                    case "FootSteps/Grass":
+                        audioSource.PlayOneShot(grassClips[Random.Range(0, grassClips.Length - 1)]);
+                        break;
+                    case "FootSteps/Metal":
+                        audioSource.PlayOneShot(MetalClips[Random.Range(0, MetalClips.Length - 1)]);
+                        break;
+                    case "FootSteps/Wood":
+                        audioSource.PlayOneShot(woodClips[Random.Range(0, woodClips.Length - 1)]);
+                        break;
+
+                    default:
+                        audioSource.PlayOneShot(NormalClips[Random.Range(0, NormalClips.Length - 1)]);
+                        break;
+                }
+            }
+
+            footStepTimer = baseStepSpeed;
+        }
+
+
+    }
+
 }

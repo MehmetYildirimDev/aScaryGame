@@ -8,7 +8,7 @@ public class EnemyMutant : Enemy
 
     private void Start()
     {
-        
+
     }
 
 }
