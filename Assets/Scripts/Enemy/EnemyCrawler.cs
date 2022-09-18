@@ -16,6 +16,7 @@ public class EnemyCrawler : Enemy
     public bool useFootSteps = true;
     [Header("Foot Steps Parameters")]
     public float baseStepSpeed = 0.5f;
+    public float CrawlerStepSpeed = 0.25f;
     public AudioSource audioSource = default;
     public AudioClip[] woodClips = default;
     public AudioClip[] NormalClips = default;
@@ -36,8 +37,14 @@ public class EnemyCrawler : Enemy
 
     private void Update()
     {
-        if(useFootSteps)
+
+        FaceTarget();//random yurumek icin faydasiz
+
+        if (useFootSteps)
             HandleFootSteps();
+        ///random yurutmek icin
+        //        Agent.SetDestination(new Vector3(Random.Range(transform.position.x, transform.position.x + 4),0, Random.Range(transform.position.z, transform.position.z + 4)));
+
 
         float distance = Vector3.Distance(transform.position, target.position);
 
@@ -51,10 +58,10 @@ public class EnemyCrawler : Enemy
         else
             animator.SetBool("near", false);
 
-        if (distance <= Agent.stoppingDistance)
-        {
-            FaceTarget();
-        }
+        //if (distance <= Agent.stoppingDistance)
+        //{
+        //    FaceTarget();
+        //}
 
         animator.SetFloat("isStop", distance);
     }
@@ -75,13 +82,13 @@ public class EnemyCrawler : Enemy
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, lookRadius);
-        Gizmos.DrawRay(transform.position + new Vector3 (0,1,0), Vector3.down);
+        Gizmos.DrawRay(transform.position + new Vector3(0, 1, 0), Vector3.down);
     }
 
     public void HandleFootSteps()
     {
 
-        if (Agent.velocity.magnitude<=0) return;
+        if (Agent.velocity.magnitude <= 0) return;
         //if (currentInput == Vector2.zero) return;
 
         footStepTimer -= Time.deltaTime;
@@ -108,7 +115,7 @@ public class EnemyCrawler : Enemy
                 }
             }
 
-            footStepTimer = baseStepSpeed;
+            footStepTimer = CrawlerStepSpeed;
         }
 
 

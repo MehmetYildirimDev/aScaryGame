@@ -9,6 +9,7 @@ public class EnemyGhoul : Enemy
     public float lookRadius = 10f;
     private Transform target;
     private NavMeshAgent Agent;
+    private Animator animator;
 
     public bool useFootSteps = true;
     [Header("Foot Steps Parameters")]
@@ -25,13 +26,15 @@ public class EnemyGhoul : Enemy
         target = FirstPersonController.instance.transform;
         Agent = GetComponent<NavMeshAgent>();
         audioSource = GetComponent<AudioSource>();
+        animator = GetComponent<Animator>();
     }
 
 
 
     private void Update()
     {
-        
+        FaceTarget();
+
         if (useFootSteps)
             HandleFootSteps();
 
@@ -39,13 +42,20 @@ public class EnemyGhoul : Enemy
 
         if (distance <= lookRadius)
         {
+
+            animator.SetBool("near", true);
+
             Agent.SetDestination(target.position);
         }
+        else
+            animator.SetBool("near", false);
 
-        if (distance <= Agent.stoppingDistance)
-        {
-            FaceTarget();
-        }
+        //if (distance <= Agent.stoppingDistance)
+        //{
+        //    FaceTarget();
+        //}
+
+        animator.SetFloat("isStop", distance);
 
     }
 
