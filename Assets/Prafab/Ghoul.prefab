@@ -1616,6 +1616,15 @@ MonoBehaviour:
   MetalClips: []
   grassClips: []
   footStepTimer: 0
+  FovRadius: 8
+  FovAngle: 100
+  targetMask:
+    serializedVersion: 2
+    m_Bits: 64
+  obstructionMask:
+    serializedVersion: 2
+    m_Bits: 128
+  canSeePlayer: 0
 --- !u!195 &4430881714922749788
 NavMeshAgent:
   m_ObjectHideFlags: 0
