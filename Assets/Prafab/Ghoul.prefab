@@ -1597,9 +1597,11 @@ MonoBehaviour:
   Healt: 100
   Damage: 10
   WalkSpeed: 5
+  target: {fileID: 0}
   lookRadius: 10
   useFootSteps: 1
   baseStepSpeed: 0.5
+  CrawlerStepSpeed: 0
   audioSource: {fileID: 1778363496782630597}
   woodClips: []
   NormalClips:
@@ -1616,7 +1618,7 @@ MonoBehaviour:
   MetalClips: []
   grassClips: []
   footStepTimer: 0
-  FovRadius: 8
+  FovRadius: 10
   FovAngle: 100
   targetMask:
     serializedVersion: 2

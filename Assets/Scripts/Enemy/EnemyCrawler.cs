@@ -6,6 +6,8 @@ using UnityEngine.AI;
 public class EnemyCrawler : Enemy
 {
 
+
+
     private void Update()
     {
 
@@ -20,6 +22,7 @@ public class EnemyCrawler : Enemy
 
         if (distance <= lookRadius)
         {
+            Agent.isStopped = false;
             animator.SetBool("near", true);
 
             Agent.SetDestination(target.position);
@@ -27,7 +30,11 @@ public class EnemyCrawler : Enemy
             base.FaceTarget();
         }
         else
+        {
             animator.SetBool("near", false);
+
+            Agent.isStopped = true;
+        }
 
         //if (distance <= Agent.stoppingDistance)
         //{
@@ -36,5 +43,7 @@ public class EnemyCrawler : Enemy
 
         animator.SetFloat("isStop", distance);
     }
+
+
 
 }

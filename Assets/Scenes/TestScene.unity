@@ -2071,7 +2071,6 @@ MonoBehaviour:
   Healt: 100
   Damage: 10
   WalkSpeed: 5
-  target: {fileID: 0}
   lookRadius: 10
   useFootSteps: 1
   baseStepSpeed: 0.5
@@ -5044,14 +5043,6 @@ PrefabInstance:
     - target: {fileID: 4430881714922749790, guid: c83a4b9aac7b5da468b89d3a8325f58e, type: 3}
       propertyPath: m_Name
       value: Ghoul
-      objectReference: {fileID: 0}
-    - target: {fileID: 5704985452585627024, guid: c83a4b9aac7b5da468b89d3a8325f58e, type: 3}
-      propertyPath: FovAngle
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 5704985452585627024, guid: c83a4b9aac7b5da468b89d3a8325f58e, type: 3}
-      propertyPath: FovRadius
-      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c83a4b9aac7b5da468b89d3a8325f58e, type: 3}

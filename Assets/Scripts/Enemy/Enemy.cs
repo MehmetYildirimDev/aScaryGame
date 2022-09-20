@@ -11,7 +11,7 @@ public abstract class Enemy : MonoBehaviour
      public float Damage=10f;
      public float WalkSpeed=5f;
 
-    public Transform target;
+    protected Transform target;
 
     public float lookRadius = 10f;
 
@@ -56,7 +56,8 @@ public abstract class Enemy : MonoBehaviour
 
     }
 
-    protected void HandleFootSteps()
+
+    protected virtual void HandleFootSteps()
     {
 
         if (Agent.velocity.magnitude <= 0) return;
@@ -86,7 +87,7 @@ public abstract class Enemy : MonoBehaviour
                 }
             }
 
-            footStepTimer = CrawlerStepSpeed;
+            footStepTimer = baseStepSpeed;
         }
 
 
