@@ -139,10 +139,10 @@ public class FirstPersonController : MonoBehaviour
 
 
     private Camera PlayerCamera;
-    private CharacterController characterController;
+    public CharacterController characterController;
 
     private Vector3 moveDirecton;
-    private Vector2 currentInput;
+    public Vector2 currentInput;
 
     private float RotationX = 0;
 
