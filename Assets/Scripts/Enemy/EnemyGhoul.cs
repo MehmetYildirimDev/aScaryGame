@@ -43,7 +43,7 @@ public class EnemyGhoul : Enemy
 
     }
 
-    
+
 
 
     //private void OnDrawGizmosSelected()
@@ -51,7 +51,7 @@ public class EnemyGhoul : Enemy
     //    Gizmos.color = Color.red;
     //    Gizmos.DrawWireSphere(transform.position, lookRadius);
     //}
- 
+
 
 
 }

@@ -100,7 +100,15 @@ public abstract class Enemy : MonoBehaviour
     //    Gizmos.DrawRay(transform.position + new Vector3(0, 1, 0), Vector3.down);
     //}
 
-
+    public int currentHealt = 3;
+    public void onDamage(int damageAmount)
+    {
+        currentHealt -= damageAmount;
+        if (currentHealt <= 0)
+        {
+            gameObject.SetActive(false);
+        }
+    }
     protected IEnumerator FovRuotine()
     {
         WaitForSeconds wait = new WaitForSeconds(0.2f);
