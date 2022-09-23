@@ -12,12 +12,13 @@ public class Pistol : MonoBehaviour
 
     private Camera fpsCam;
     private WaitForSeconds shotDuration = new WaitForSeconds(0.07f);//lazer gorunumunun suresi
-    private AudioSource gunAudio;
+
     private LineRenderer laserLine;//duz cizgi ceker iki nokta arasina
     private float nextFire;//sonraki ates icn sure ?? 
 
-
-
+    [Header("Audio")]
+    private AudioSource gunAudio;
+    public AudioClip[] audioClips;
 
     private Animator animator;
 
@@ -76,25 +77,35 @@ public class Pistol : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.R))
         {
             animator.Play("reload");
+            gunAudio.PlayOneShot(audioClips[2]);
         }
 
 
         if (Input.GetKeyDown(KeyCode.F))
         {
             animator.Play("punc");
+            gunAudio.PlayOneShot(audioClips[3]);
+            //todo:dusmana carparsa 4. index
         }
 
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            animator.Play("draw");
+        }
 
     }
 
     private IEnumerator ShotEffect()
     {
-        gunAudio.Play();
+        gunAudio.PlayOneShot(audioClips[0]);
         laserLine.enabled = true;
-
         yield return shotDuration;
 
         laserLine.enabled = false; 
     }
         
+    private void DrawAudio()
+    {
+        gunAudio.PlayOneShot(audioClips[1]);
+    }
 }
