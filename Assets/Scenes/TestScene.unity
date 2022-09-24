@@ -3890,6 +3890,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HealtText: {fileID: 105085002}
   StaminaText: {fileID: 219511537}
+  clipText: {fileID: 1344592668}
+  TotalAmmoText: {fileID: 1466237111}
 --- !u!1 &1127056194
 GameObject:
   m_ObjectHideFlags: 0
@@ -4940,7 +4942,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: ClipAmmo
+  m_Text: 30
 --- !u!222 &1344592669
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4965,7 +4967,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 125, y: -219.4}
+  m_AnchoredPosition: {x: 125, y: -153.4}
   m_SizeDelta: {x: 250, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1466237110
@@ -5019,7 +5021,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: TotalAmmo
+  m_Text: 90
 --- !u!222 &1466237112
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5044,7 +5046,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 125, y: -151.1}
+  m_AnchoredPosition: {x: 184.25, y: -151.1}
   m_SizeDelta: {x: 250, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1493150143
@@ -6042,8 +6044,6 @@ MonoBehaviour:
   M4BULLET: 30
   empty: 0
   ReloadTime: 1.17
-  clip: {fileID: 1344592668}
-  TotalAmmo: {fileID: 1466237111}
 --- !u!120 &2229352154846368998
 LineRenderer:
   m_ObjectHideFlags: 0

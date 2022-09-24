@@ -33,8 +33,10 @@ public class Pistol : MonoBehaviour
     public float ReloadTime = 1.17f;
     private bool isReloding = false;
     private bool canShoot = true;
-    public Text clip;
-    public Text TotalAmmo;
+    public static Action<float> onClip;
+    public static Action<float> onTotalAmmo;
+    // public Text clip;
+    // public Text TotalAmmo;
 
     private void Start()
     {
@@ -47,7 +49,9 @@ public class Pistol : MonoBehaviour
 
     private void Update()
     {
-        clip.text = clipbullet.ToString();
+     //   clip.text = clipbullet.ToString();
+
+        onClip?.Invoke(clipbullet);
 
         if (isReloding) return;
 
@@ -166,7 +170,9 @@ public class Pistol : MonoBehaviour
             clipbullet += empty;
         }
 
-        TotalAmmo.text = Totalbullet.ToString();
+     //   TotalAmmo.text = Totalbullet.ToString();
+        onTotalAmmo?.Invoke(Totalbullet);
+
 
         isReloding = false;
     }
