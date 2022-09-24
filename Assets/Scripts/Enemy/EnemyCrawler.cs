@@ -6,8 +6,6 @@ using UnityEngine.AI;
 public class EnemyCrawler : Enemy
 {
 
-
-
     private void Update()
     {
 
@@ -44,6 +42,4 @@ public class EnemyCrawler : Enemy
         animator.SetFloat("isStop", distance);
     }
 
-
-  
 }

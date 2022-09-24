@@ -106,6 +106,8 @@ public abstract class Enemy : MonoBehaviour
         currentHealt -= damageAmount;
         if (currentHealt <= 0)
         {
+            //animator.Play("Death");
+            //Destroy(this.gameObject, 2f);
             gameObject.SetActive(false);
         }
     }

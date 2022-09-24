@@ -9,7 +9,9 @@ public class UIScript : MonoBehaviour
 {
 
     [SerializeField] private Text HealtText = default;
-    [SerializeField] private Text StaminaText = default;
+    [SerializeField] private Text StaminaText = default; 
+    
+
 
     private void OnEnable()
     {

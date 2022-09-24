@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using System;
 
 public class Pistol : MonoBehaviour
 {
@@ -22,6 +24,18 @@ public class Pistol : MonoBehaviour
 
     private Animator animator;
 
+
+    [Header("Reload System")]
+    public int Totalbullet = 90;
+    public int clipbullet = 30;
+    public int M4BULLET = 30;
+    public int empty = 0;
+    public float ReloadTime = 1.17f;
+    private bool isReloding = false;
+    private bool canShoot = true;
+    public Text clip;
+    public Text TotalAmmo;
+
     private void Start()
     {
         animator = GetComponent<Animator>();
@@ -33,8 +47,25 @@ public class Pistol : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0) && Time.time>nextFire)
+        clip.text = clipbullet.ToString();
+
+        if (isReloding) return;
+
+        if (Totalbullet < 0 || clipbullet <= 0)
         {
+            canShoot = false;
+        }
+        else
+        {
+            canShoot = true;
+        }
+
+
+
+        #region Shoot
+        if (Input.GetKeyDown(KeyCode.Mouse0) && Time.time > nextFire && canShoot)
+        {
+            clipbullet -= 1;
             animator.Play("shot");
 
             nextFire = Time.time + fireRate;
@@ -46,7 +77,7 @@ public class Pistol : MonoBehaviour
             RaycastHit hit;
 
             laserLine.SetPosition(0, gunEnd.position);
-            
+
             if (Physics.Raycast(rayOrigin, fpsCam.transform.forward, out hit, WeaponRange))//out kulanmak donus bilgilerinden daha fazla bilgi donderirir
             {
                 laserLine.SetPosition(1, hit.point);
@@ -65,19 +96,23 @@ public class Pistol : MonoBehaviour
             }
             else
             {
-                laserLine.SetPosition(1, rayOrigin + (fpsCam.transform.forward * WeaponRange)); 
+                laserLine.SetPosition(1, rayOrigin + (fpsCam.transform.forward * WeaponRange));
             }
-            
+
 
 
         }
+        #endregion
 
 
 
-        if (Input.GetKeyDown(KeyCode.R))
+
+        if (Input.GetKeyDown(KeyCode.R) || clipbullet <= 0 && Totalbullet > 0)
         {
-            animator.Play("reload");
-            gunAudio.PlayOneShot(audioClips[2]);
+            StartCoroutine(ReloadClip());
+            return;
+
+
         }
 
 
@@ -101,11 +136,38 @@ public class Pistol : MonoBehaviour
         laserLine.enabled = true;
         yield return shotDuration;
 
-        laserLine.enabled = false; 
+        laserLine.enabled = false;
     }
-        
+
     private void DrawAudio()
     {
         gunAudio.PlayOneShot(audioClips[1]);
+    }
+
+
+    IEnumerator ReloadClip()
+    {
+        isReloding = true;
+
+        animator.Play("reload");
+        gunAudio.PlayOneShot(audioClips[2]);
+
+        yield return new WaitForSeconds(ReloadTime);
+
+        if (Totalbullet > 0)
+        {
+            empty = M4BULLET - clipbullet;
+
+            if (empty > Totalbullet)
+            {
+                empty = Totalbullet;
+            }
+            Totalbullet -= empty;
+            clipbullet += empty;
+        }
+
+        TotalAmmo.text = Totalbullet.ToString();
+
+        isReloding = false;
     }
 }
