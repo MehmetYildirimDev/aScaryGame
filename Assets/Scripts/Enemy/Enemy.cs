@@ -111,6 +111,7 @@ public abstract class Enemy : MonoBehaviour
             gameObject.SetActive(false);
         }
     }
+
     protected IEnumerator FovRuotine()
     {
         WaitForSeconds wait = new WaitForSeconds(0.2f);

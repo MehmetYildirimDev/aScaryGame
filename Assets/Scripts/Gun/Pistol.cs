@@ -69,54 +69,21 @@ public class Pistol : MonoBehaviour
         #region Shoot
         if (Input.GetKeyDown(KeyCode.Mouse0) && Time.time > nextFire && canShoot)
         {
-            clipbullet -= 1;
-            animator.Play("shot");
-
-            nextFire = Time.time + fireRate;
-
-            StartCoroutine(ShotEffect());
-
-            Vector3 rayOrigin = fpsCam.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0));//ekranin ortasi
-
-            RaycastHit hit;
-
-            laserLine.SetPosition(0, gunEnd.position);
-
-            if (Physics.Raycast(rayOrigin, fpsCam.transform.forward, out hit, WeaponRange))//out kulanmak donus bilgilerinden daha fazla bilgi donderirir
-            {
-                laserLine.SetPosition(1, hit.point);
-
-
-                Enemy healt = hit.collider.GetComponent<Enemy>();
-                if (healt != null)
-                {
-                    healt.onDamage(GunDamage);
-                }
-
-                if (hit.rigidbody != null)
-                {
-                    hit.rigidbody.AddForce(-hit.normal * hitForce);
-                }
-            }
-            else
-            {
-                laserLine.SetPosition(1, rayOrigin + (fpsCam.transform.forward * WeaponRange));
-            }
-
-
-
+            Shoot();
         }
         #endregion
 
 
 
 
-        if (Input.GetKeyDown(KeyCode.R) || clipbullet <= 0 && Totalbullet > 0)
+        if (Input.GetKeyDown(KeyCode.R) || clipbullet <= 0 && Totalbullet > 0 )
         {
-            StartCoroutine(ReloadClip());
-            return;
-
-
+            if (clipbullet <M4BULLET)
+            {
+                StartCoroutine(ReloadClip());
+                return;
+            }
+           
         }
 
 
@@ -131,6 +98,46 @@ public class Pistol : MonoBehaviour
         {
             animator.Play("draw");
         }
+
+    }
+
+    private void Shoot()
+    {
+        clipbullet -= 1;
+        animator.Play("shot");
+
+        nextFire = Time.time + fireRate;
+
+        StartCoroutine(ShotEffect());
+
+        Vector3 rayOrigin = fpsCam.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0));//ekranin ortasi
+
+        RaycastHit hit;
+
+        laserLine.SetPosition(0, gunEnd.position);
+
+        if (Physics.Raycast(rayOrigin, fpsCam.transform.forward, out hit, WeaponRange))//out kulanmak donus bilgilerinden daha fazla bilgi donderirir
+        {
+            laserLine.SetPosition(1, hit.point);
+
+
+            Enemy healt = hit.collider.GetComponent<Enemy>();
+            if (healt != null)
+            {
+                healt.onDamage(GunDamage);
+            }
+
+            if (hit.rigidbody != null)
+            {
+                hit.rigidbody.AddForce(-hit.normal * hitForce);
+            }
+        }
+        else
+        {
+            laserLine.SetPosition(1, rayOrigin + (fpsCam.transform.forward * WeaponRange));
+        }
+
+
 
     }
 
