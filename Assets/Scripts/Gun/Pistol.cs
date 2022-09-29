@@ -31,12 +31,16 @@ public class Pistol : MonoBehaviour
     public int M4BULLET = 30;
     public int empty = 0;
     public float ReloadTime = 1.17f;
-    private bool isReloding = false;
-    private bool canShoot = true;
+    [SerializeField] private bool isReloding = false;
+    [SerializeField] private bool canShoot = true;
     public static Action<float> onClip;
     public static Action<float> onTotalAmmo;
     // public Text clip;
     // public Text TotalAmmo;
+
+    [Header("Particle System")]
+    public ParticleSystem MuzzleFlash;
+
 
     private void Start()
     {
@@ -49,7 +53,7 @@ public class Pistol : MonoBehaviour
 
     private void Update()
     {
-     //   clip.text = clipbullet.ToString();
+        //   clip.text = clipbullet.ToString();
 
         onClip?.Invoke(clipbullet);
 
@@ -76,14 +80,14 @@ public class Pistol : MonoBehaviour
 
 
 
-        if (Input.GetKeyDown(KeyCode.R) || clipbullet <= 0 && Totalbullet > 0 )
+        if (Input.GetKeyDown(KeyCode.R) || clipbullet <= 0 && Totalbullet > 0)
         {
-            if (clipbullet <M4BULLET)
+            if (clipbullet < M4BULLET)
             {
                 StartCoroutine(ReloadClip());
                 return;
             }
-           
+
         }
 
 
@@ -105,6 +109,7 @@ public class Pistol : MonoBehaviour
     {
         clipbullet -= 1;
         animator.Play("shot");
+        MuzzleFlash.Play();
 
         nextFire = Time.time + fireRate;
 
@@ -177,7 +182,7 @@ public class Pistol : MonoBehaviour
             clipbullet += empty;
         }
 
-     //   TotalAmmo.text = Totalbullet.ToString();
+        //   TotalAmmo.text = Totalbullet.ToString();
         onTotalAmmo?.Invoke(Totalbullet);
 
 
