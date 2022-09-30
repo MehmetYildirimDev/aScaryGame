@@ -42,9 +42,6 @@ public class EnemyWarZombie : Enemy
 
     }
 
-
-
-
     //private void OnDrawGizmosSelected()
     //{
     //    Gizmos.color = Color.red;

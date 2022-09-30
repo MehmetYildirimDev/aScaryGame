@@ -108,11 +108,21 @@ public abstract class Enemy : MonoBehaviour
         if (currentHealt <= 0)
         {
             isDead = true;
-            //animator.Play("Death");
-            //Destroy(this.gameObject, 2f);
-            //gameObject.SetActive(false);
             animator.enabled = false;
-            
+            KinematicState();
+            Agent.speed = 0f;
+            //Destroy(this.gameObject, 3f);
+
+        }
+    }
+        //fizikten etkilenip etkilenmeme 
+    public void KinematicState()
+    {
+        Rigidbody[] rigidbodies = this.GetComponentsInChildren<Rigidbody>();
+
+        foreach (Rigidbody rigidbody in rigidbodies)
+        {
+            rigidbody.isKinematic = false;
         }
     }
 
