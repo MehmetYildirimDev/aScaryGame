@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public abstract class Enemy : MonoBehaviour
 {
-    
+    public bool isDead;
 
     public float Healt=100f;
      public float Damage=10f;
@@ -39,6 +39,7 @@ public abstract class Enemy : MonoBehaviour
 
     private void Start()
     {
+        isDead = false;
         Agent = GetComponent<NavMeshAgent>();
         audioSource = GetComponent<AudioSource>();
         animator = GetComponent<Animator>();
@@ -106,9 +107,12 @@ public abstract class Enemy : MonoBehaviour
         currentHealt -= damageAmount;
         if (currentHealt <= 0)
         {
+            isDead = true;
             //animator.Play("Death");
             //Destroy(this.gameObject, 2f);
-            gameObject.SetActive(false);
+            //gameObject.SetActive(false);
+            animator.enabled = false;
+            
         }
     }
 

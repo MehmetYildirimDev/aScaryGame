@@ -126,11 +126,22 @@ public class Pistol : MonoBehaviour
             laserLine.SetPosition(1, hit.point);
 
 
-            Enemy healt = hit.collider.GetComponent<Enemy>();
-            if (healt != null)
+            Enemy[] Healts = hit.collider.GetComponentsInParent<Enemy>();
+            foreach (Enemy colliders in Healts)
             {
-                healt.onDamage(GunDamage);
+                if (colliders != null)
+                {
+                    colliders.onDamage(GunDamage);
+                }
+                
             }
+
+
+         //   Enemy healt = hit.collider.GetComponent<Enemy>();
+         //   if (healt != null)
+         //   {
+         //       healt.onDamage(GunDamage);
+         //   }
 
             if (hit.rigidbody != null)
             {
