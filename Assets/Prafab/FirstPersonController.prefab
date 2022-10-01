@@ -374,7 +374,7 @@ MonoBehaviour:
   GunDamage: 1
   fireRate: 0.25
   WeaponRange: 50
-  hitForce: 25
+  hitForce: 1000
   gunEnd: {fileID: 406317852808409429}
   audioClips:
   - {fileID: 8300000, guid: 1179a9299094e2846a75eb0948c7a803, type: 3}
@@ -390,6 +390,10 @@ MonoBehaviour:
   isReloding: 0
   canShoot: 1
   MuzzleFlash: {fileID: 406317853151529960}
+  bloods:
+  - {fileID: 608807844776322859, guid: fdf0bff47f6265844b63b432670a8f59, type: 3}
+  others:
+  - {fileID: 614467246561867859, guid: 1d70ab30c53efd148a5e3800674467f4, type: 3}
 --- !u!114 &1969119867613890754
 MonoBehaviour:
   m_ObjectHideFlags: 0

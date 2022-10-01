@@ -5,11 +5,11 @@ using UnityEngine.AI;
 
 public abstract class Enemy : MonoBehaviour
 {
-    public bool isDead=false;
+    public bool isDead = false;
 
-    public float Healt=100f;
-     public float Damage=10f;
-     public float WalkSpeed=5f;
+    public float Healt = 100f;
+    public float Damage = 10f;
+    public float WalkSpeed = 5f;
 
     protected Transform target;
 
@@ -19,14 +19,15 @@ public abstract class Enemy : MonoBehaviour
     [Header("Foot Steps Parameters")]
     public float baseStepSpeed = 0.5f;
     public float CrawlerStepSpeed = 0.25f;
-    public AudioSource audioSource = default;
+    public AudioSource FootStepaudioSource = default;
     public AudioClip[] woodClips = default;
     public AudioClip[] NormalClips = default;
     public AudioClip[] MetalClips = default;
     public AudioClip[] grassClips = default;
     public float footStepTimer = 0;
 
-    public bool useSetDistance=true;
+    public bool useSetDistance = true;
+    protected float Distance;
     protected NavMeshAgent Agent;
     protected Animator animator;
 
@@ -38,11 +39,14 @@ public abstract class Enemy : MonoBehaviour
     public LayerMask obstructionMask;
     public bool canSeePlayer;
 
+    [Header("Sounds System")]
+    public AudioSource MainAudioSource;
+
     private void Start()
     {
         isDead = false;
         Agent = GetComponent<NavMeshAgent>();
-        audioSource = GetComponent<AudioSource>();
+        MainAudioSource = GetComponent<AudioSource>();
         animator = GetComponent<Animator>();
         StartCoroutine(FovRuotine());
         target = FirstPersonController.instance.transform;
@@ -60,9 +64,9 @@ public abstract class Enemy : MonoBehaviour
 
     public void HandlesetDistance()
     {
-        float distance = Vector3.Distance(transform.position, target.position);
+        Distance = Vector3.Distance(transform.position, target.position);
 
-        if (distance <= lookRadius)
+        if (Distance <= lookRadius)
         {
             Agent.isStopped = false;
             animator.SetBool("near", true);
@@ -84,7 +88,7 @@ public abstract class Enemy : MonoBehaviour
         //    FaceTarget();
         //}
 
-        animator.SetFloat("isStop", distance);
+        animator.SetFloat("isStop", Distance);
 
     }
 
@@ -103,17 +107,17 @@ public abstract class Enemy : MonoBehaviour
                 switch (hit.collider.tag)
                 {
                     case "FootSteps/Grass":
-                        audioSource.PlayOneShot(grassClips[Random.Range(0, grassClips.Length - 1)]);
+                        FootStepaudioSource.PlayOneShot(grassClips[Random.Range(0, grassClips.Length - 1)]);
                         break;
                     case "FootSteps/Metal":
-                        audioSource.PlayOneShot(MetalClips[Random.Range(0, MetalClips.Length - 1)]);
+                        FootStepaudioSource.PlayOneShot(MetalClips[Random.Range(0, MetalClips.Length - 1)]);
                         break;
                     case "FootSteps/Wood":
-                        audioSource.PlayOneShot(woodClips[Random.Range(0, woodClips.Length - 1)]);
+                        FootStepaudioSource.PlayOneShot(woodClips[Random.Range(0, woodClips.Length - 1)]);
                         break;
 
                     default:
-                        audioSource.PlayOneShot(NormalClips[Random.Range(0, NormalClips.Length - 1)]);
+                        FootStepaudioSource.PlayOneShot(NormalClips[Random.Range(0, NormalClips.Length - 1)]);
                         break;
                 }
             }
@@ -135,17 +139,18 @@ public abstract class Enemy : MonoBehaviour
     public void onDamage(int damageAmount)
     {
         currentHealt -= damageAmount;
-        if (currentHealt <= 0)
+        if (currentHealt <= 0)//isdead
         {
             isDead = true;
             animator.enabled = false;
             KinematicState();
             Agent.speed = 0f;
+            MainAudioSource.Stop();
             //Destroy(this.gameObject, 3f);
 
         }
     }
-        //fizikten etkilenip etkilenmeme 
+    //fizikten etkilenip etkilenmeme 
     public void KinematicState()
     {
         Rigidbody[] rigidbodies = this.GetComponentsInChildren<Rigidbody>();

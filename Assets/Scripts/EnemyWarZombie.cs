@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class EnemyWarZombie : Enemy
 {
+
+    public AudioClip[] ZombieSounds;
+
+
     private void Update()
     {
         if (!isDead)
@@ -12,9 +16,9 @@ public class EnemyWarZombie : Enemy
                 HandleFootSteps();
             if (useSetDistance)
                 HandlesetDistance();
+
+            SoundEffectCheck();
         }
-
-
     }
 
     //private void OnDrawGizmosSelected()
@@ -23,5 +27,23 @@ public class EnemyWarZombie : Enemy
     //    Gizmos.DrawWireSphere(transform.position, lookRadius);
     //}
 
-   
+    public void SoundEffectCheck()
+    {
+        if (Distance <= lookRadius)
+        {
+            if (MainAudioSource.clip != ZombieSounds[0])
+            {
+                MainAudioSource.clip = ZombieSounds[0];
+                MainAudioSource.Play();
+            }
+        }
+        else
+        {
+            if (MainAudioSource.clip != ZombieSounds[1])
+            {
+                MainAudioSource.clip = ZombieSounds[1];
+                MainAudioSource.Play();
+            }
+        }
+    }
 }
