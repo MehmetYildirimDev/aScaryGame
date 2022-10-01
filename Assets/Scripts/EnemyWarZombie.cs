@@ -10,33 +10,8 @@ public class EnemyWarZombie : Enemy
         {
             if (useFootSteps)
                 HandleFootSteps();
-
-            float distance = Vector3.Distance(transform.position, target.position);
-
-            if (distance <= lookRadius)
-            {
-                Agent.isStopped = false;
-                animator.SetBool("near", true);
-
-                Agent.SetDestination(target.position);
-
-                base.FaceTarget();
-            }
-            else
-            {
-                animator.SetBool("near", false);
-
-                Agent.isStopped = true;
-            }
-
-
-            //if (distance <= Agent.stoppingDistance)
-            //{
-            //    FaceTarget();
-            //}
-
-            animator.SetFloat("isStop", distance);
-
+            if (useSetDistance)
+                HandlesetDistance();
         }
 
 
@@ -47,4 +22,6 @@ public class EnemyWarZombie : Enemy
     //    Gizmos.color = Color.red;
     //    Gizmos.DrawWireSphere(transform.position, lookRadius);
     //}
+
+   
 }

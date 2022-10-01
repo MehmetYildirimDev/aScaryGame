@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public abstract class Enemy : MonoBehaviour
 {
-    public bool isDead;
+    public bool isDead=false;
 
     public float Healt=100f;
      public float Damage=10f;
@@ -26,6 +26,7 @@ public abstract class Enemy : MonoBehaviour
     public AudioClip[] grassClips = default;
     public float footStepTimer = 0;
 
+    public bool useSetDistance=true;
     protected NavMeshAgent Agent;
     protected Animator animator;
 
@@ -57,6 +58,35 @@ public abstract class Enemy : MonoBehaviour
 
     }
 
+    public void HandlesetDistance()
+    {
+        float distance = Vector3.Distance(transform.position, target.position);
+
+        if (distance <= lookRadius)
+        {
+            Agent.isStopped = false;
+            animator.SetBool("near", true);
+
+            Agent.SetDestination(target.position);
+
+            FaceTarget();
+        }
+        else
+        {
+            animator.SetBool("near", false);
+
+            Agent.isStopped = true;
+        }
+
+
+        //if (distance <= Agent.stoppingDistance)
+        //{
+        //    FaceTarget();
+        //}
+
+        animator.SetFloat("isStop", distance);
+
+    }
 
     protected virtual void HandleFootSteps()
     {

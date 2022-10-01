@@ -1563,7 +1563,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4428972405614956460
 Transform:
   m_ObjectHideFlags: 0
@@ -1595,6 +1595,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a1912f21199c8e4399e577af1b74b14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isDead: 0
   Healt: 100
   Damage: 10
   WalkSpeed: 5
@@ -1618,6 +1619,7 @@ MonoBehaviour:
   MetalClips: []
   grassClips: []
   footStepTimer: 0
+  useSetDistance: 0
   FovRadius: 10
   FovAngle: 100
   targetMask:
