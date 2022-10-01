@@ -41,7 +41,9 @@ public class Pistol : MonoBehaviour
     [Header("Particle System")]
     public ParticleSystem MuzzleFlash;
 
-
+    [Header("impact System")]
+    public GameObject[] bloods;
+    public GameObject[] others;
     private void Start()
     {
         animator = GetComponent<Animator>();
@@ -126,19 +128,29 @@ public class Pistol : MonoBehaviour
             laserLine.SetPosition(1, hit.point);
 
 
+            /*
+                  Enemy healt = hit.collider.GetComponent<Enemy>();
+                           if (healt != null)
+                           {
+                                healt.transform.root.GetComponent<Enemy>().onDamage(GunDamage);
+                              healt.onDamage(GunDamage);
+                           }
+             */
 
-
-            //     Enemy healt = hit.collider.GetComponent<Enemy>();
-            //     if (healt != null)
-            //     {
-            //          healt.transform.root.GetComponent<Enemy>().onDamage(GunDamage);
-            //  //       healt.onDamage(GunDamage);
-            //     }
 
             if (hit.collider.CompareTag("enemy1"))
             {
                 hit.collider.transform.root.GetComponent<Enemy>().onDamage(GunDamage);
                 Debug.Log(hit.collider.name);
+
+                GameObject impactGO = Instantiate(bloods[UnityEngine.Random.Range(0, bloods.Length - 1)], hit.point, Quaternion.LookRotation(hit.normal));
+                Destroy(impactGO, 1f);
+
+            }
+            else
+            {
+                GameObject impactGO = Instantiate(others[UnityEngine.Random.Range(0, others.Length - 1)], hit.point, Quaternion.LookRotation(hit.normal));
+                Destroy(impactGO, 1f);
             }
 
             if (hit.rigidbody != null)
