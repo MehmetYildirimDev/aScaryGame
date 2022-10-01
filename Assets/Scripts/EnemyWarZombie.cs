@@ -19,6 +19,14 @@ public class EnemyWarZombie : Enemy
 
             SoundEffectCheck();
         }
+        else
+        {
+            if (MainAudioSource.clip != ZombieSounds[3])
+            {
+                MainAudioSource.clip = ZombieSounds[3];
+                MainAudioSource.Play();
+            }
+        }
     }
 
     //private void OnDrawGizmosSelected()
@@ -29,6 +37,17 @@ public class EnemyWarZombie : Enemy
 
     public void SoundEffectCheck()
     {
+
+        if (Distance <= Agent.stoppingDistance)
+        {
+            if (MainAudioSource.clip != ZombieSounds[2])
+            {
+                MainAudioSource.clip = ZombieSounds[2];
+                MainAudioSource.Play();
+            }
+            return;
+        }
+
         if (Distance <= lookRadius)
         {
             if (MainAudioSource.clip != ZombieSounds[0])
@@ -45,5 +64,8 @@ public class EnemyWarZombie : Enemy
                 MainAudioSource.Play();
             }
         }
+
+
+
     }
 }

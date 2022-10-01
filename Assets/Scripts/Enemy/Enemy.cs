@@ -145,7 +145,7 @@ public abstract class Enemy : MonoBehaviour
             animator.enabled = false;
             KinematicState();
             Agent.speed = 0f;
-            MainAudioSource.Stop();
+            //MainAudioSource.Stop();
             //Destroy(this.gameObject, 3f);
 
         }

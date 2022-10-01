@@ -43,7 +43,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.25
+  m_Volume: 0.49
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -2057,11 +2057,12 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   canSeePlayer: 0
-  MainAudioSource: {fileID: 4537139256889720001}
+  MainAudioSource: {fileID: 0}
   currentHealt: 3
   ZombieSounds:
   - {fileID: 8300000, guid: 28014139ddaa0d44dbb6a89a7296c23b, type: 3}
   - {fileID: 8300000, guid: 04e983c4f59b30641908684fdd17993e, type: 3}
+  - {fileID: 8300000, guid: 497de3d118ee976478da76d1cc6f0bbb, type: 3}
 --- !u!82 &4537139256889720001
 AudioSource:
   m_ObjectHideFlags: 0
