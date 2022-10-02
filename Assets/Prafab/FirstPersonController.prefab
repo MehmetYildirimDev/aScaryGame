@@ -1431,6 +1431,7 @@ MonoBehaviour:
   timeBeforeRegenStarts: 3
   healtValueIncrement: 1
   healtTimeIncrement: 0.1
+  ZombieTakeDamage: 0
   MaxStamina: 100
   StaminaUseMulipler: 15
   timeBeforeStaminaRegenStarts: 5
@@ -1498,6 +1499,18 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 67c8b33e424ccdc4486edf538ab91c5a, type: 3}
   - {fileID: 8300000, guid: 274649b0e221539409070ebf6c18918b, type: 3}
   - {fileID: 8300000, guid: a3194b8bbc96ef84fab1f98f4b7dae3e, type: 3}
+  hearts:
+  - {fileID: 8300000, guid: 181e8b52f7eb88346a8a075bf2308924, type: 3}
+  - {fileID: 8300000, guid: b2ba5e21cd0d388459f6c32a204169b7, type: 3}
+  - {fileID: 8300000, guid: 9af225aee1a40f549a7b387332eacbb9, type: 3}
+  - {fileID: 8300000, guid: e8b13946e49a4584fb4445728448f717, type: 3}
+  - {fileID: 8300000, guid: 98ad57978365ced4799a672e698b62e2, type: 3}
+  - {fileID: 8300000, guid: c5ff8a9c21405174ea8cbe11c12f4ade, type: 3}
+  - {fileID: 8300000, guid: bf99f171450bf6f49a0f06c939d9e6ef, type: 3}
+  - {fileID: 8300000, guid: 9eb73da7dc0b08e4b91a5d234ac62b29, type: 3}
+  - {fileID: 8300000, guid: d3c5a4375e4acaa4794aac0c0a23545f, type: 3}
+  - {fileID: 8300000, guid: 193f74093316bbc4f9b250a8b8ac86a6, type: 3}
+  - {fileID: 8300000, guid: 4bc51372a323c0048bbb9c1f710be53f, type: 3}
   interactonRayPoint: {x: 0.5, y: 0.5, z: 0}
   "interactonD\u0130stance": 2
   interactonLayer:
