@@ -5,6 +5,7 @@ using UnityEngine.AI;
 
 public abstract class Enemy : MonoBehaviour
 {
+
     public bool isDead = false;
     public int currentHealt = 3;
     public int Healt;
@@ -150,7 +151,9 @@ public abstract class Enemy : MonoBehaviour
             //Destroy(this.gameObject, 3f);
 
         }
+        Agent.isStopped = false;
     }
+
 
     //animasyonda vuruyorsa burayi cagiriyo ve eger hasar al dogruysa(o da kolu degdiyse true oluyo) hasar verito ve surekli hasar alma olayini cozyuoruz
     public void onDamagePlayer()

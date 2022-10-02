@@ -110,7 +110,8 @@ public class FirstPersonController : MonoBehaviour
     private float GetCurrentOffset => isCrouching ? (baseStepSpeed * CrouchStepMultipler) : isSprinting ? (baseStepSpeed * SprintStepMultipler) : baseStepSpeed;
 
     [Header("Heart Sounds")]
-    [SerializeField] private AudioClip[] hearts=default;
+    [SerializeField] private AudioClip[] hearts = default;
+    [SerializeField] private GameObject DamageImage = default;
 
 
     //SLÝDÝNG PARAMETERS ///editorde degistirilecek bir sey olmadýgýndan boyle yaptýk
@@ -149,7 +150,7 @@ public class FirstPersonController : MonoBehaviour
     private float RotationX = 0;
 
 
-    
+
     public static FirstPersonController instance;//Singleton yapiyoz
 
 
@@ -360,13 +361,14 @@ public class FirstPersonController : MonoBehaviour
         {
             ZombieTakeDamage = true;
         }
-       
+
     }
 
 
 
     public void ApplyDamage(float dmg)
     {
+        DamageImage.GetComponent<Animation>().Play("damage");
         currentHealt -= dmg;
         onDamage?.Invoke(currentHealt);
 
@@ -502,9 +504,10 @@ public class FirstPersonController : MonoBehaviour
 
     private IEnumerator RegenerateHealth()
     {
+
         yield return new WaitForSeconds(timeBeforeRegenStarts);
         WaitForSeconds timeToWait = new WaitForSeconds(healtTimeIncrement);
-
+         DamageImage.GetComponent<Animation>().Play("Healtup");
         while (currentHealt < maxHealt)
         {
             currentHealt += healtValueIncrement;

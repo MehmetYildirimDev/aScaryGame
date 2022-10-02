@@ -46,6 +46,7 @@ public class UIScript : MonoBehaviour
     private void UpdateHealt(float currentHealt)
     {
         HealtText.text = currentHealt.ToString("00");
+        
     }
 
     private void UpdateStamina(float currentStamina)
