@@ -150,6 +150,20 @@ public abstract class Enemy : MonoBehaviour
 
         }
     }
+
+    //animasyonda vuruyorsa burayi cagiriyo ve eger hasar al dogruysa(o da kolu degdiyse true oluyo) hasar verito ve surekli hasar alma olayini cozyuoruz
+    public void onDamagePlayer()
+    {
+        if (FirstPersonController.instance.ZombieTakeDamage)
+        {
+            FirstPersonController.instance.ApplyDamage(10);
+        }
+        FirstPersonController.instance.ZombieTakeDamage = false;
+    }
+    
+
+
+
     //fizikten etkilenip etkilenmeme 
     public void KinematicState()
     {

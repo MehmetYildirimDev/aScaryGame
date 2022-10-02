@@ -3030,7 +3030,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -3103,7 +3103,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 12d1b38b31809714a9e53e77f79ac789, type: 3}
   - {fileID: 8300000, guid: ab8842b42fcaba04193bd8bc50c78cbf, type: 3}
   - {fileID: 8300000, guid: ee2ebb4c4ca5fad40bdac20c3eeaae1a, type: 3}
-  audioSource: {fileID: 0}
+  audioSource: {fileID: 1012742222}
 --- !u!1 &1048612912
 GameObject:
   m_ObjectHideFlags: 0
@@ -3331,7 +3331,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1076676381}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 14.9273, y: 0.8636, z: 21.4214}
+  m_LocalPosition: {x: 15.30055, y: 0.28760004, z: 22.8104}
   m_LocalScale: {x: 0.6011, y: 0.5752, z: 0.6408}
   m_Children: []
   m_Father: {fileID: 599990979}
@@ -4128,14 +4128,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3618151696448448188, guid: e5011a76d5e65a24591633e22eba5369, type: 3}
-      propertyPath: ZombieSounds.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 3618151696448448188, guid: e5011a76d5e65a24591633e22eba5369, type: 3}
-      propertyPath: ZombieSounds.Array.data[3]
-      value: 
-      objectReference: {fileID: 8300000, guid: 0c7a350fbeacd28408d27d383d81d14c, type: 3}
     - target: {fileID: 3872243219225142908, guid: e5011a76d5e65a24591633e22eba5369, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -5367,6 +5359,54 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4776068785068496150, guid: 741654bb776453a4d91914385d48c215, type: 3}
+      propertyPath: hearts.Array.size
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 4776068785068496150, guid: 741654bb776453a4d91914385d48c215, type: 3}
+      propertyPath: hearts.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 181e8b52f7eb88346a8a075bf2308924, type: 3}
+    - target: {fileID: 4776068785068496150, guid: 741654bb776453a4d91914385d48c215, type: 3}
+      propertyPath: hearts.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: b2ba5e21cd0d388459f6c32a204169b7, type: 3}
+    - target: {fileID: 4776068785068496150, guid: 741654bb776453a4d91914385d48c215, type: 3}
+      propertyPath: hearts.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: 9af225aee1a40f549a7b387332eacbb9, type: 3}
+    - target: {fileID: 4776068785068496150, guid: 741654bb776453a4d91914385d48c215, type: 3}
+      propertyPath: hearts.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: e8b13946e49a4584fb4445728448f717, type: 3}
+    - target: {fileID: 4776068785068496150, guid: 741654bb776453a4d91914385d48c215, type: 3}
+      propertyPath: hearts.Array.data[4]
+      value: 
+      objectReference: {fileID: 8300000, guid: 98ad57978365ced4799a672e698b62e2, type: 3}
+    - target: {fileID: 4776068785068496150, guid: 741654bb776453a4d91914385d48c215, type: 3}
+      propertyPath: hearts.Array.data[5]
+      value: 
+      objectReference: {fileID: 8300000, guid: c5ff8a9c21405174ea8cbe11c12f4ade, type: 3}
+    - target: {fileID: 4776068785068496150, guid: 741654bb776453a4d91914385d48c215, type: 3}
+      propertyPath: hearts.Array.data[6]
+      value: 
+      objectReference: {fileID: 8300000, guid: bf99f171450bf6f49a0f06c939d9e6ef, type: 3}
+    - target: {fileID: 4776068785068496150, guid: 741654bb776453a4d91914385d48c215, type: 3}
+      propertyPath: hearts.Array.data[7]
+      value: 
+      objectReference: {fileID: 8300000, guid: 9eb73da7dc0b08e4b91a5d234ac62b29, type: 3}
+    - target: {fileID: 4776068785068496150, guid: 741654bb776453a4d91914385d48c215, type: 3}
+      propertyPath: hearts.Array.data[8]
+      value: 
+      objectReference: {fileID: 8300000, guid: d3c5a4375e4acaa4794aac0c0a23545f, type: 3}
+    - target: {fileID: 4776068785068496150, guid: 741654bb776453a4d91914385d48c215, type: 3}
+      propertyPath: hearts.Array.data[9]
+      value: 
+      objectReference: {fileID: 8300000, guid: 193f74093316bbc4f9b250a8b8ac86a6, type: 3}
+    - target: {fileID: 4776068785068496150, guid: 741654bb776453a4d91914385d48c215, type: 3}
+      propertyPath: hearts.Array.data[10]
+      value: 
+      objectReference: {fileID: 8300000, guid: 4bc51372a323c0048bbb9c1f710be53f, type: 3}
     - target: {fileID: 4776068785068496151, guid: 741654bb776453a4d91914385d48c215, type: 3}
       propertyPath: m_Name
       value: FirstPersonController

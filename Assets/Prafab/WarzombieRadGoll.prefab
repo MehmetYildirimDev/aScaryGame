@@ -632,9 +632,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7496845331218011220}
+  - component: {fileID: 1288499232}
   m_Layer: 0
   m_Name: mixamorig:LeftHand
-  m_TagString: enemy1
+  m_TagString: Enemy/Hand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -658,6 +659,20 @@ Transform:
   m_Father: {fileID: 6116171584962772846}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &1288499232
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 889180523980884059}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.12168383
+  m_Height: 0.40377033
+  m_Direction: 1
+  m_Center: {x: -0.017619738, y: 0.22718233, z: 0.000000033878365}
 --- !u!1 &943487542468730442
 GameObject:
   m_ObjectHideFlags: 0
@@ -882,9 +897,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3135610376310423135}
+  - component: {fileID: 385229306}
   m_Layer: 0
   m_Name: mixamorig:RightHand
-  m_TagString: enemy1
+  m_TagString: Enemy/Hand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -908,6 +924,20 @@ Transform:
   m_Father: {fileID: 1271456713883087935}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &385229306
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1700637233442139286}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.12168383
+  m_Height: 0.40377033
+  m_Direction: 1
+  m_Center: {x: -0.017619738, y: 0.22718233, z: 0.000000033878365}
 --- !u!1 &1759721032943502231
 GameObject:
   m_ObjectHideFlags: 0
@@ -1998,12 +2028,12 @@ NavMeshAgent:
   m_GameObject: {fileID: 4537139256889720006}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.5
+  m_Radius: 0.2
   m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 2
+  m_StoppingDistance: 1.25
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -2063,6 +2093,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 28014139ddaa0d44dbb6a89a7296c23b, type: 3}
   - {fileID: 8300000, guid: 04e983c4f59b30641908684fdd17993e, type: 3}
   - {fileID: 8300000, guid: 497de3d118ee976478da76d1cc6f0bbb, type: 3}
+  - {fileID: 8300000, guid: 0c7a350fbeacd28408d27d383d81d14c, type: 3}
 --- !u!82 &4537139256889720001
 AudioSource:
   m_ObjectHideFlags: 0

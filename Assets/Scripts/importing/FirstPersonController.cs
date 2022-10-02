@@ -52,6 +52,7 @@ public class FirstPersonController : MonoBehaviour
     public static Action<float> onTakeDamage;
     public static Action<float> onDamage;
     public static Action<float> onHeal;
+    public bool ZombieTakeDamage = false;
 
     [Header("Stamina Parameters")]
     [SerializeField] private float MaxStamina = 100;
@@ -108,7 +109,8 @@ public class FirstPersonController : MonoBehaviour
     private float footStepTimer = 0;
     private float GetCurrentOffset => isCrouching ? (baseStepSpeed * CrouchStepMultipler) : isSprinting ? (baseStepSpeed * SprintStepMultipler) : baseStepSpeed;
 
-
+    [Header("Heart Sounds")]
+    [SerializeField] private AudioClip[] hearts=default;
 
 
     //SLÝDÝNG PARAMETERS ///editorde degistirilecek bir sey olmadýgýndan boyle yaptýk
@@ -350,10 +352,27 @@ public class FirstPersonController : MonoBehaviour
 
     }
 
-    private void ApplyDamage(float dmg)
+    private void OnTriggerEnter(Collider other)
+    {
+
+        Debug.Log(other.gameObject.name);
+        if (other.gameObject.CompareTag("Enemy/Hand"))
+        {
+            ZombieTakeDamage = true;
+        }
+       
+    }
+
+
+
+    public void ApplyDamage(float dmg)
     {
         currentHealt -= dmg;
         onDamage?.Invoke(currentHealt);
+
+
+        audioSource.PlayOneShot(hearts[UnityEngine.Random.Range(0, hearts.Length - 1)]);
+
 
         if (currentHealt <= 0)
             KillPlayer();
@@ -499,6 +518,7 @@ public class FirstPersonController : MonoBehaviour
 
         regenratingHealty = null;
     }
+
 
     private IEnumerator RegenerateStamina()
     {
