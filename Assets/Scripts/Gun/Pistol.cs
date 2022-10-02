@@ -146,6 +146,7 @@ public class Pistol : MonoBehaviour
                 GameObject impactGO = Instantiate(bloods[UnityEngine.Random.Range(0, bloods.Length - 1)], hit.point, Quaternion.LookRotation(hit.normal));
                 Destroy(impactGO, 1f);
 
+
             }
             else
             {

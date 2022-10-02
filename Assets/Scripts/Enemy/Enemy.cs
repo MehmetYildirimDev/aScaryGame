@@ -41,7 +41,7 @@ public abstract class Enemy : MonoBehaviour
 
     [Header("Sounds System")]
     public AudioSource MainAudioSource;
-
+    public AudioClip takeDamageSfx;
     private void Start()
     {
         isDead = false;
@@ -66,7 +66,7 @@ public abstract class Enemy : MonoBehaviour
     {
         Distance = Vector3.Distance(transform.position, target.position);
 
-        if (Distance <= lookRadius)
+        if (Distance <= lookRadius || canSeePlayer)
         {
             Agent.isStopped = false;
             animator.SetBool("near", true);
@@ -134,13 +134,14 @@ public abstract class Enemy : MonoBehaviour
     //    Gizmos.DrawWireSphere(transform.position, lookRadius);
     //    Gizmos.DrawRay(transform.position + new Vector3(0, 1, 0), Vector3.down);
     //}
-
     public int currentHealt = 3;
     public void onDamage(int damageAmount)
     {
+        AudioSource.PlayClipAtPoint(takeDamageSfx, transform.position,1f);
         currentHealt -= damageAmount;
         if (currentHealt <= 0)//isdead
         {
+           
             isDead = true;
             animator.enabled = false;
             KinematicState();

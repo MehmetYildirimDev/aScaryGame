@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: d07d2172e76d3fa429e80a14d2ae3616, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.16750419, g: 0.23615462, b: 0.3467101, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -141,7 +141,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 4294967294
   m_IsActive: 1
 --- !u!4 &60779770
 Transform:
@@ -2385,8 +2385,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 705507993}
-  m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
-  m_LocalPosition: {x: 0, y: 3, z: 0}
+  m_LocalRotation: {x: 0.27113664, y: 0.19409084, z: -0.055920877, w: 0.94110924}
+  m_LocalPosition: {x: -25.86605, y: 74.07238, z: -90.090836}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 599990979}
@@ -3355,7 +3355,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 4294967294
   m_IsActive: 1
 --- !u!4 &1127056195
 Transform:
@@ -5311,9 +5311,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4776068785068496139, guid: 741654bb776453a4d91914385d48c215, type: 3}
-      propertyPath: m_PlayOnAwake
-      value: 1
+    - target: {fileID: 1969119867613890765, guid: 741654bb776453a4d91914385d48c215, type: 3}
+      propertyPath: m_Volume
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4776068785068496148, guid: 741654bb776453a4d91914385d48c215, type: 3}
       propertyPath: m_RootOrder
@@ -5359,54 +5359,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4776068785068496150, guid: 741654bb776453a4d91914385d48c215, type: 3}
-      propertyPath: hearts.Array.size
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 4776068785068496150, guid: 741654bb776453a4d91914385d48c215, type: 3}
-      propertyPath: hearts.Array.data[0]
-      value: 
-      objectReference: {fileID: 8300000, guid: 181e8b52f7eb88346a8a075bf2308924, type: 3}
-    - target: {fileID: 4776068785068496150, guid: 741654bb776453a4d91914385d48c215, type: 3}
-      propertyPath: hearts.Array.data[1]
-      value: 
-      objectReference: {fileID: 8300000, guid: b2ba5e21cd0d388459f6c32a204169b7, type: 3}
-    - target: {fileID: 4776068785068496150, guid: 741654bb776453a4d91914385d48c215, type: 3}
-      propertyPath: hearts.Array.data[2]
-      value: 
-      objectReference: {fileID: 8300000, guid: 9af225aee1a40f549a7b387332eacbb9, type: 3}
-    - target: {fileID: 4776068785068496150, guid: 741654bb776453a4d91914385d48c215, type: 3}
-      propertyPath: hearts.Array.data[3]
-      value: 
-      objectReference: {fileID: 8300000, guid: e8b13946e49a4584fb4445728448f717, type: 3}
-    - target: {fileID: 4776068785068496150, guid: 741654bb776453a4d91914385d48c215, type: 3}
-      propertyPath: hearts.Array.data[4]
-      value: 
-      objectReference: {fileID: 8300000, guid: 98ad57978365ced4799a672e698b62e2, type: 3}
-    - target: {fileID: 4776068785068496150, guid: 741654bb776453a4d91914385d48c215, type: 3}
-      propertyPath: hearts.Array.data[5]
-      value: 
-      objectReference: {fileID: 8300000, guid: c5ff8a9c21405174ea8cbe11c12f4ade, type: 3}
-    - target: {fileID: 4776068785068496150, guid: 741654bb776453a4d91914385d48c215, type: 3}
-      propertyPath: hearts.Array.data[6]
-      value: 
-      objectReference: {fileID: 8300000, guid: bf99f171450bf6f49a0f06c939d9e6ef, type: 3}
-    - target: {fileID: 4776068785068496150, guid: 741654bb776453a4d91914385d48c215, type: 3}
-      propertyPath: hearts.Array.data[7]
-      value: 
-      objectReference: {fileID: 8300000, guid: 9eb73da7dc0b08e4b91a5d234ac62b29, type: 3}
-    - target: {fileID: 4776068785068496150, guid: 741654bb776453a4d91914385d48c215, type: 3}
-      propertyPath: hearts.Array.data[8]
-      value: 
-      objectReference: {fileID: 8300000, guid: d3c5a4375e4acaa4794aac0c0a23545f, type: 3}
-    - target: {fileID: 4776068785068496150, guid: 741654bb776453a4d91914385d48c215, type: 3}
-      propertyPath: hearts.Array.data[9]
-      value: 
-      objectReference: {fileID: 8300000, guid: 193f74093316bbc4f9b250a8b8ac86a6, type: 3}
-    - target: {fileID: 4776068785068496150, guid: 741654bb776453a4d91914385d48c215, type: 3}
-      propertyPath: hearts.Array.data[10]
-      value: 
-      objectReference: {fileID: 8300000, guid: 4bc51372a323c0048bbb9c1f710be53f, type: 3}
     - target: {fileID: 4776068785068496151, guid: 741654bb776453a4d91914385d48c215, type: 3}
       propertyPath: m_Name
       value: FirstPersonController

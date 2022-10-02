@@ -2088,6 +2088,7 @@ MonoBehaviour:
     m_Bits: 128
   canSeePlayer: 0
   MainAudioSource: {fileID: 0}
+  takeDamageSfx: {fileID: 8300000, guid: 9c8ed03160d0c2743987cc5e07e3a56b, type: 3}
   currentHealt: 3
   ZombieSounds:
   - {fileID: 8300000, guid: 28014139ddaa0d44dbb6a89a7296c23b, type: 3}
@@ -2106,7 +2107,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 0
   Mute: 0
