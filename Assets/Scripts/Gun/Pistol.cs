@@ -6,6 +6,7 @@ using System;
 
 public class Pistol : MonoBehaviour
 {
+    [Header("Gun System")]
     public int GunDamage = 1;
     public float fireRate = 0.25f;//tekrar ates edebilmek icin gecen sure
     public float WeaponRange = 50f;  //menzil
@@ -55,7 +56,6 @@ public class Pistol : MonoBehaviour
 
     private void Update()
     {
-        //   clip.text = clipbullet.ToString();
 
         onClip?.Invoke(clipbullet);
 
