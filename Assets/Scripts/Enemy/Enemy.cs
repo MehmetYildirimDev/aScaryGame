@@ -6,10 +6,9 @@ using UnityEngine.AI;
 public abstract class Enemy : MonoBehaviour
 {
     public bool isDead = false;
+    public int currentHealt = 3;
+    public int Healt;
 
-    public float Healt = 100f;
-    public float Damage = 10f;
-    public float WalkSpeed = 5f;
 
     protected Transform target;
 
@@ -44,6 +43,7 @@ public abstract class Enemy : MonoBehaviour
     public AudioClip takeDamageSfx;
     private void Start()
     {
+        Healt = currentHealt;
         isDead = false;
         Agent = GetComponent<NavMeshAgent>();
         MainAudioSource = GetComponent<AudioSource>();
@@ -66,7 +66,7 @@ public abstract class Enemy : MonoBehaviour
     {
         Distance = Vector3.Distance(transform.position, target.position);
 
-        if (Distance <= lookRadius || canSeePlayer)
+        if (Distance <= lookRadius || canSeePlayer || Healt != currentHealt) //hasar aldiginda da gelmesi gerek
         {
             Agent.isStopped = false;
             animator.SetBool("near", true);
@@ -134,14 +134,14 @@ public abstract class Enemy : MonoBehaviour
     //    Gizmos.DrawWireSphere(transform.position, lookRadius);
     //    Gizmos.DrawRay(transform.position + new Vector3(0, 1, 0), Vector3.down);
     //}
-    public int currentHealt = 3;
+
     public void onDamage(int damageAmount)
     {
-        AudioSource.PlayClipAtPoint(takeDamageSfx, transform.position,1f);
-        currentHealt -= damageAmount;
-        if (currentHealt <= 0)//isdead
+        AudioSource.PlayClipAtPoint(takeDamageSfx, transform.position, 1f);
+        Healt -= damageAmount;
+        if (Healt <= 0)//isdead
         {
-           
+
             isDead = true;
             animator.enabled = false;
             KinematicState();
@@ -161,7 +161,7 @@ public abstract class Enemy : MonoBehaviour
         }
         FirstPersonController.instance.ZombieTakeDamage = false;
     }
-    
+
 
 
 
