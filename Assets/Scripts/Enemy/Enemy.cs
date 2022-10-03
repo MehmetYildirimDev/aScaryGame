@@ -148,7 +148,7 @@ public abstract class Enemy : MonoBehaviour
             KinematicState();
             Agent.speed = 0f;
             //MainAudioSource.Stop();
-            //Destroy(this.gameObject, 3f);
+            Destroy(this.gameObject, 8f);
 
         }
         Agent.isStopped = false;

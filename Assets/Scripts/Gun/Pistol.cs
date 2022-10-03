@@ -121,11 +121,11 @@ public class Pistol : MonoBehaviour
 
         RaycastHit hit;
 
-        laserLine.SetPosition(0, gunEnd.position);
+        //laserLine.SetPosition(0, gunEnd.position);
 
         if (Physics.Raycast(rayOrigin, fpsCam.transform.forward, out hit, WeaponRange))//out kulanmak donus bilgilerinden daha fazla bilgi donderirir
         {
-            laserLine.SetPosition(1, hit.point);
+           // laserLine.SetPosition(1, hit.point);
 
 
             /*
@@ -161,7 +161,7 @@ public class Pistol : MonoBehaviour
         }
         else
         {
-            laserLine.SetPosition(1, rayOrigin + (fpsCam.transform.forward * WeaponRange));
+            //laserLine.SetPosition(1, rayOrigin + (fpsCam.transform.forward * WeaponRange));
         }
 
 
@@ -171,10 +171,10 @@ public class Pistol : MonoBehaviour
     private IEnumerator ShotEffect()
     {
         gunAudio.PlayOneShot(audioClips[0]);
-        laserLine.enabled = true;
+       // laserLine.enabled = true;
         yield return shotDuration;
 
-        laserLine.enabled = false;
+        //laserLine.enabled = false;
     }
 
     private void DrawAudio()
