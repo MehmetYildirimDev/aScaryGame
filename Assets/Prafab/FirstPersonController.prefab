@@ -1523,7 +1523,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 4cf3fcc18ae7bf846bb8a5beec7e3d63, type: 3}
   JumpForce: 8
   Gravity: 30
-  CroucHeight: 0.5
+  CroucHeight: 1.5
   StandHeight: 2
   TimeToCrouch: 0.25
   CrouchingCenter: {x: 0, y: 0.5, z: 0}
