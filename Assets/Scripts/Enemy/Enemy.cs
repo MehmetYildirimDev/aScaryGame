@@ -51,6 +51,7 @@ public abstract class Enemy : MonoBehaviour
         animator = GetComponent<Animator>();
         StartCoroutine(FovRuotine());
         target = FirstPersonController.instance.transform;
+        KinematicState();
     }
 
     protected void FaceTarget()
@@ -69,7 +70,7 @@ public abstract class Enemy : MonoBehaviour
 
         if (Distance <= lookRadius || canSeePlayer || Healt != currentHealt) //hasar aldiginda da gelmesi gerek
         {
-            Agent.isStopped = false;
+          //  Agent.isStopped = false;
             animator.SetBool("near", true);
 
             Agent.SetDestination(target.position);
@@ -80,16 +81,24 @@ public abstract class Enemy : MonoBehaviour
         {
             animator.SetBool("near", false);
 
-            Agent.isStopped = true;
+      //      Agent.isStopped = true;
         }
 
-
+        animator.SetFloat("isStop", Distance);
         //if (distance <= Agent.stoppingDistance)
         //{
         //    FaceTarget();
         //}
+        if (Distance<2)
+        {
+            Agent.isStopped=true;
+        }
+        else if(Distance>2 && !isDead)
+        {
+            Agent.isStopped = false;
+        }
 
-        animator.SetFloat("isStop", Distance);
+      
 
     }
 
@@ -178,6 +187,7 @@ public abstract class Enemy : MonoBehaviour
             rigidbody.isKinematic = false;
         }
     }
+
 
     protected IEnumerator FovRuotine()
     {
