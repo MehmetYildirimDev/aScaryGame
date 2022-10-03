@@ -546,4 +546,5 @@ public class FirstPersonController : MonoBehaviour
         regenratingStamina = null;
     }
 
+
 }

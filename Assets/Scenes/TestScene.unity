@@ -9045,6 +9045,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 440289182418680673, guid: e6d001551674af24aa15b6ab64268c38, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8154432875256379841, guid: e6d001551674af24aa15b6ab64268c38, type: 3}
       propertyPath: m_Name
       value: Parasite L Starkie
