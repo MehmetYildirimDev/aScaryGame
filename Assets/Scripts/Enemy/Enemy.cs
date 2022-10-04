@@ -51,7 +51,6 @@ public abstract class Enemy : MonoBehaviour
         animator = GetComponent<Animator>();
         StartCoroutine(FovRuotine());
         target = FirstPersonController.instance.transform;
-        KinematicState();
     }
 
     protected void FaceTarget()

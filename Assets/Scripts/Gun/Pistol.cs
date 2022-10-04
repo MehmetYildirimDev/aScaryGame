@@ -161,7 +161,8 @@ public class Pistol : MonoBehaviour
 
             if (hit.collider.CompareTag("Lamp"))
             {
-                hit.collider.gameObject.transform.GetChild(1).gameObject.SetActive(false);
+                hit.collider.gameObject.transform.GetChild(0).gameObject.SetActive(false);
+
             }
         }
         else
