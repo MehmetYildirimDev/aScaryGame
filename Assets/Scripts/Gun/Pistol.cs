@@ -158,6 +158,11 @@ public class Pistol : MonoBehaviour
             {
                 hit.rigidbody.AddForce(-hit.normal * hitForce);
             }
+
+            if (hit.collider.CompareTag("Lamp"))
+            {
+                hit.collider.gameObject.transform.GetChild(1).gameObject.SetActive(false);
+            }
         }
         else
         {

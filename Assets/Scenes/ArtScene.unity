@@ -1787,8 +1787,16 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 179298, guid: 2fa97d29375bda64080d41087c0c107c, type: 3}
+      propertyPath: m_TagString
+      value: Lamp
+      objectReference: {fileID: 0}
+    - target: {fileID: 179298, guid: 2fa97d29375bda64080d41087c0c107c, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 186052, guid: 2fa97d29375bda64080d41087c0c107c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 186052, guid: 2fa97d29375bda64080d41087c0c107c, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -2298,6 +2306,19 @@ Animation:
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 0
+--- !u!65 &1490465691
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1490465687}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.9401057, y: 0.2239239, z: 0.8606163}
+  m_Center: {x: 0.00000015129595, y: -0.9438963, z: 6.471745e-15}
 --- !u!1001 &1612253704
 PrefabInstance:
   m_ObjectHideFlags: 0
