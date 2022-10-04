@@ -5,6 +5,7 @@ using System;
 
 public class FirstPersonController : MonoBehaviour
 {
+    public bool PlayerisDead = false;
     public bool canMove { get; private set; } = true;
     private bool isSprinting => canSprint && Input.GetKey(SprintKey) && !isCrouching;
     // !isCrouching bunu ben ekledim hata olursa bak
@@ -152,7 +153,7 @@ public class FirstPersonController : MonoBehaviour
 
 
     public static FirstPersonController instance;//Singleton yapiyoz
-
+    Pistol pistol;
 
     private void OnEnable()
     {
@@ -167,7 +168,7 @@ public class FirstPersonController : MonoBehaviour
     private void Awake()
     {
         instance = this;
-
+        pistol = FindObjectOfType<Pistol>();
         PlayerCamera = GetComponentInChildren<Camera>();
         characterController = GetComponent<CharacterController>();
         Cursor.lockState = CursorLockMode.Locked;
@@ -180,7 +181,7 @@ public class FirstPersonController : MonoBehaviour
 
     private void Update()
     {
-        if (canMove)
+        if (canMove && !PlayerisDead)
         {
             HandleMovementInput();
             HandleMouseLook();
@@ -380,8 +381,10 @@ public class FirstPersonController : MonoBehaviour
             KillPlayer();
         else if (regenratingHealty != null)
             StopCoroutine(regenratingHealty);
-
-        regenratingHealty = StartCoroutine(RegenerateHealth());
+        if (!PlayerisDead)
+        {
+            regenratingHealty = StartCoroutine(RegenerateHealth());
+        }
 
     }
 
@@ -389,8 +392,11 @@ public class FirstPersonController : MonoBehaviour
     {
         currentHealt = 0;
 
+        PlayerisDead = true;
+
         if (regenratingHealty != null)
             StopCoroutine(RegenerateHealth());
+
 
         print("Dead");
     }
@@ -504,22 +510,24 @@ public class FirstPersonController : MonoBehaviour
 
     private IEnumerator RegenerateHealth()
     {
+        
+            yield return new WaitForSeconds(timeBeforeRegenStarts);
+            WaitForSeconds timeToWait = new WaitForSeconds(healtTimeIncrement);
+            DamageImage.GetComponent<Animation>().Play("Healtup");
+            while (currentHealt < maxHealt)
+            {
+                currentHealt += healtValueIncrement;
+                if (currentHealt > maxHealt)
+                    currentHealt = maxHealt;
 
-        yield return new WaitForSeconds(timeBeforeRegenStarts);
-        WaitForSeconds timeToWait = new WaitForSeconds(healtTimeIncrement);
-         DamageImage.GetComponent<Animation>().Play("Healtup");
-        while (currentHealt < maxHealt)
-        {
-            currentHealt += healtValueIncrement;
-            if (currentHealt > maxHealt)
-                currentHealt = maxHealt;
 
+                onHeal?.Invoke(currentHealt);
+                yield return timeToWait;
+            }
 
-            onHeal?.Invoke(currentHealt);
-            yield return timeToWait;
-        }
-
-        regenratingHealty = null;
+            regenratingHealty = null;
+        
+        
     }
 
 

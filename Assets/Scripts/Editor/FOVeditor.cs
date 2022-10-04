@@ -2,13 +2,13 @@ using UnityEditor;
 using UnityEngine;
 
 
-[CustomEditor(typeof(EnemyGhoul))]
+[CustomEditor(typeof(Enemy))]
 public class FOVeditor : Editor
 {
 
     private void OnSceneGUI()
     {
-        EnemyGhoul fov = (EnemyGhoul)target;
+        Enemy fov = (Enemy)target;
         Handles.color = Color.white;
         Handles.DrawWireArc(fov.transform.position, Vector3.up, Vector3.forward, 360, fov.FovRadius);
 

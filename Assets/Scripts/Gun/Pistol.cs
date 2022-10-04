@@ -56,56 +56,62 @@ public class Pistol : MonoBehaviour
 
     private void Update()
     {
-
-        onClip?.Invoke(clipbullet);
-
-        if (isReloding) return;
-
-        if (Totalbullet < 0 || clipbullet <= 0)
+        if (!FirstPersonController.instance.PlayerisDead)
         {
-            canShoot = false;
-        }
-        else
-        {
-            canShoot = true;
-        }
+            onClip?.Invoke(clipbullet);
 
+            if (isReloding) return;
 
-
-        #region Shoot
-        if (Input.GetKeyDown(KeyCode.Mouse0) && Time.time > nextFire && canShoot)
-        {
-            Shoot();
-        }
-        #endregion
-
-
-
-
-        if (Input.GetKeyDown(KeyCode.R) || clipbullet <= 0 && Totalbullet > 0)
-        {
-            if (clipbullet < M4BULLET)
+            if (Totalbullet < 0 || clipbullet <= 0)
             {
-                StartCoroutine(ReloadClip());
-                return;
+                canShoot = false;
+            }
+            else
+            {
+                canShoot = true;
+            }
+
+
+
+            #region Shoot
+            if (Input.GetKeyDown(KeyCode.Mouse0) && Time.time > nextFire && canShoot)
+            {
+                Shoot();
+            }
+            #endregion
+
+
+
+
+            if (Input.GetKeyDown(KeyCode.R) || clipbullet <= 0 && Totalbullet > 0)
+            {
+                if (clipbullet < M4BULLET)
+                {
+                    StartCoroutine(ReloadClip());
+                    return;
+                }
+
+            }
+
+
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                animator.Play("punc");
+                gunAudio.PlayOneShot(audioClips[3]);
+                //todo:dusmana carparsa 4. index
+            }
+
+            if (Input.GetKeyDown(KeyCode.Alpha1))
+            {
+                animator.Play("draw");
             }
 
         }
-
-
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            animator.Play("punc");
-            gunAudio.PlayOneShot(audioClips[3]);
-            //todo:dusmana carparsa 4. index
-        }
-
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            animator.Play("draw");
-        }
+        
 
     }
+
+
 
     private void Shoot()
     {

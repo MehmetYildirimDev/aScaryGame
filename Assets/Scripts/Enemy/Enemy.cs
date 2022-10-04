@@ -137,12 +137,12 @@ public abstract class Enemy : MonoBehaviour
 
     }
 
-    //protected void OnDrawGizmosSelected()
-    //{
-    //    Gizmos.color = Color.red;
-    //    Gizmos.DrawWireSphere(transform.position, lookRadius);
-    //    Gizmos.DrawRay(transform.position + new Vector3(0, 1, 0), Vector3.down);
-    //}
+    protected void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, lookRadius);
+        Gizmos.DrawRay(transform.position + new Vector3(0, 1, 0), Vector3.down);
+    }
 
     public void onDamage(int damageAmount)
     {
@@ -168,7 +168,7 @@ public abstract class Enemy : MonoBehaviour
     {
         if (FirstPersonController.instance.ZombieTakeDamage)
         {
-            FirstPersonController.instance.ApplyDamage(10);
+            FirstPersonController.instance.ApplyDamage(100);
         }
         FirstPersonController.instance.ZombieTakeDamage = false;
     }
