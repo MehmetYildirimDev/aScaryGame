@@ -168,7 +168,7 @@ public abstract class Enemy : MonoBehaviour
     {
         if (FirstPersonController.instance.ZombieTakeDamage)
         {
-            FirstPersonController.instance.ApplyDamage(100);
+            FirstPersonController.instance.ApplyDamage(10);
         }
         FirstPersonController.instance.ZombieTakeDamage = false;
     }
