@@ -10,7 +10,6 @@ public abstract class Enemy : MonoBehaviour
     public int currentHealt = 3;
     public int Healt;
 
-
     protected Transform target;
 
     public float lookRadius = 10f;
@@ -67,9 +66,9 @@ public abstract class Enemy : MonoBehaviour
     {
         Distance = Vector3.Distance(transform.position, target.position);
 
-        if (Distance <= lookRadius || canSeePlayer || Healt != currentHealt) //hasar aldiginda da gelmesi gerek
+        if ((Distance <= lookRadius || canSeePlayer || Healt != currentHealt)) //hasar aldiginda da gelmesi gerek
         {
-          //  Agent.isStopped = false;
+            //  Agent.isStopped = false;
             animator.SetBool("near", true);
 
             Agent.SetDestination(target.position);
@@ -80,7 +79,7 @@ public abstract class Enemy : MonoBehaviour
         {
             animator.SetBool("near", false);
 
-      //      Agent.isStopped = true;
+            //      Agent.isStopped = true;
         }
 
         animator.SetFloat("isStop", Distance);
@@ -88,6 +87,7 @@ public abstract class Enemy : MonoBehaviour
         //{
         //    FaceTarget();
         //}
+
         if (Distance<2)
         {
             Agent.isStopped=true;
@@ -97,7 +97,7 @@ public abstract class Enemy : MonoBehaviour
             Agent.isStopped = false;
         }
 
-      
+
 
     }
 
@@ -225,4 +225,8 @@ public abstract class Enemy : MonoBehaviour
         else if (canSeePlayer)//daha once gorduyse býrakýyo
             canSeePlayer = false;
     }
+
+
+
+
 }

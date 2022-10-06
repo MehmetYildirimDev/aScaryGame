@@ -7,7 +7,6 @@ public class EnemyWarZombie : Enemy
 
     public AudioClip[] ZombieSounds;
 
-
     private void Update()
     {
         if (!isDead)
@@ -70,4 +69,6 @@ public class EnemyWarZombie : Enemy
         
 
     }
+
+
 }
