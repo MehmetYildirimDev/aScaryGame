@@ -34,6 +34,7 @@ public class Pistol : MonoBehaviour
     public float ReloadTime = 1.17f;
     [SerializeField] private bool isReloding = false;
     [SerializeField] private bool canShoot = true;
+    [SerializeField] private bool DrawcanShoot = default;
     public static Action<float> onClip;
     public static Action<float> onTotalAmmo;
     // public Text clip;
@@ -74,7 +75,7 @@ public class Pistol : MonoBehaviour
 
 
             #region Shoot
-            if (Input.GetKeyDown(KeyCode.Mouse0) && Time.time > nextFire && canShoot)
+            if (Input.GetKeyDown(KeyCode.Mouse0) && DrawcanShoot && Time.time > nextFire && canShoot)
             {
                 Shoot();
             }
@@ -189,9 +190,14 @@ public class Pistol : MonoBehaviour
         //laserLine.enabled = false;
     }
 
-    private void DrawAudio()
+    private void DrawAudioandStart()
     {
         gunAudio.PlayOneShot(audioClips[1]);
+        DrawcanShoot = false;
+    }  
+    private void DrawFinish()
+    {
+        DrawcanShoot = true;
     }
 
 
