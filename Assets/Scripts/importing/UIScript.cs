@@ -23,7 +23,6 @@ public class UIScript : MonoBehaviour
         FirstPersonController.onStaminaChange += UpdateStamina;
         Pistol.onClip += UpdateClip;
         Pistol.onTotalAmmo += UpdateTotalAmmo;
-
     }
 
 
@@ -40,7 +39,7 @@ public class UIScript : MonoBehaviour
     {
         UpdateHealt(100);
         UpdateStamina(100);
-        UpdateTotalAmmo(90);
+        UpdateTotalAmmo(90);//BURAYA DÝKKAT
     }
 
     private void UpdateHealt(float currentHealt)
