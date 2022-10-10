@@ -2849,7 +2849,7 @@ MonoBehaviour:
   animator: {fileID: 8180127752515744791}
   animation: {fileID: 8180127751521764232}
   MaxCharge: 100
-  ChargeUseMulipler: 5
+  ChargeUseMulipler: 7.5
   timeBeforeChargeRegenStarts: 2
   ChargeValueIncrement: 2
   ChargeTimeIncrement: 0.1

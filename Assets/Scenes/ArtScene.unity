@@ -3873,13 +3873,5 @@ PrefabInstance:
       propertyPath: m_Name
       value: FirstPersonControllerSOFT
       objectReference: {fileID: 0}
-    - target: {fileID: 6555649901364662455, guid: babefe51fac7e45419979d5f258095d8, type: 3}
-      propertyPath: ChargeUseMulipler
-      value: 7.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8403654629602160901, guid: babefe51fac7e45419979d5f258095d8, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: babefe51fac7e45419979d5f258095d8, type: 3}
