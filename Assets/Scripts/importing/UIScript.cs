@@ -12,6 +12,7 @@ public class UIScript : MonoBehaviour
     [SerializeField] private Text StaminaText = default; 
     [SerializeField] private Text clipText = default; 
     [SerializeField] private Text TotalAmmoText = default;
+    [SerializeField] private Text ChargeText = default;
 
 
 
@@ -23,6 +24,7 @@ public class UIScript : MonoBehaviour
         FirstPersonController.onStaminaChange += UpdateStamina;
         Pistol.onClip += UpdateClip;
         Pistol.onTotalAmmo += UpdateTotalAmmo;
+        Flashlight_PRO.onChargeChange += UpdateCharge;
     }
 
 
@@ -33,6 +35,7 @@ public class UIScript : MonoBehaviour
         FirstPersonController.onHeal -= UpdateHealt;
         FirstPersonController.onStaminaChange -= UpdateStamina; 
         Pistol.onClip -= UpdateClip;
+        Flashlight_PRO.onChargeChange -= UpdateCharge;
     }
 
     private void Start()
@@ -40,6 +43,7 @@ public class UIScript : MonoBehaviour
         UpdateHealt(100);
         UpdateStamina(100);
         UpdateTotalAmmo(90);//BURAYA DÝKKAT
+        UpdateCharge(100);
     }
 
     private void UpdateHealt(float currentHealt)
@@ -53,6 +57,10 @@ public class UIScript : MonoBehaviour
         StaminaText.text = currentStamina.ToString("00");
     }
 
+    private void UpdateCharge(float currentCharge)
+    {
+        ChargeText.text = currentCharge.ToString("00");
+    }
     private void UpdateClip(float clip)
     {
         clipText.text = clip.ToString("00") + "/";
