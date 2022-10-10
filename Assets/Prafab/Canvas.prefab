@@ -202,7 +202,7 @@ MonoBehaviour:
   StaminaText: {fileID: 3388547224100797323}
   clipText: {fileID: 3388547224686844518}
   TotalAmmoText: {fileID: 3388547224808554957}
-  ChargeText: {fileID: 0}
+  ChargeText: {fileID: 8938502779531012315}
 --- !u!1 &3388547223829115569
 GameObject:
   m_ObjectHideFlags: 0
